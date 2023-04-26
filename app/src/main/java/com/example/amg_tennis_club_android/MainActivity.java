@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "LOGIN SUCCESSFULLY", Toast.LENGTH_SHORT).show();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
                         startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                     }
 
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LoginManager.getInstance().logInWithReadPermissions(MainActivity.this, Arrays.asList("public_profile"));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 

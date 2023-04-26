@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
                     startActivity(new Intent(HomeActivity.this, MainActivity.class));
                     finish();
                     Toast.makeText(HomeActivity.this, "LOGOUT SUCCESSFULLY", Toast.LENGTH_SHORT).show();
-                   // overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 }
                 else {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
                     editor.commit();
                     finish();
                     Toast.makeText(HomeActivity.this, "LOGOUT SUCCESSFULLY", Toast.LENGTH_SHORT).show();
-                 //   overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 }
             }
         });
