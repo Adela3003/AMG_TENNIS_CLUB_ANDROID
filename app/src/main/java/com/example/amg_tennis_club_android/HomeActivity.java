@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         String password = sharedPreferences.getString(KEY_PASS, null);
 
         if(name != null || password != null) {
-            textView_name.setText("Welcome "+ name);
+            textView_name.setText("Welcome, " + name + "!");
         }
 
         button_logout.setOnClickListener(new View.OnClickListener() {

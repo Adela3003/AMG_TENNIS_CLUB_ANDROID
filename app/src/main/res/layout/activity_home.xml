@@ -32,34 +32,35 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_height="450dp"
         android:layout_below="@id/textPassword"
         android:background="@drawable/court" />
 
     <Button
         android:id="@+id/inscriere"
-        android:layout_width="142dp"
-        android:layout_height="68dp"
+        android:layout_width="139dp"
+        android:layout_height="wrap_content"
         android:layout_above="@id/buttonLogOut"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="50dp"
         android:layout_marginBottom="85dp"
         android:backgroundTint="#317773"
-        android:text="Inscrieti-va in baza noastra de date"
+        android:text="Enroll in our club"
         android:textColor="#E2D1F9"
         android:textSize="12dp" />
 
     <Button
         android:id="@+id/listaAntre"
-        android:layout_width="146dp"
-        android:layout_height="68dp"
+        android:layout_width="141dp"
+        android:layout_height="wrap_content"
         android:layout_above="@id/buttonLogOut"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="50dp"
+        android:layout_marginRight="54dp"
         android:layout_marginBottom="85dp"
         android:backgroundTint="#317773"
-        android:text="Vizualizati lista antrenorilor"
+        android:text="See our coaches"
         android:textColor="#E2D1F9"
         android:textSize="12dp" />
 
