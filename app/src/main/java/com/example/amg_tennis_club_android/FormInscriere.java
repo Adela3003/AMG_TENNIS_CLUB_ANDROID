@@ -3,10 +3,19 @@ package com.example.amg_tennis_club_android;
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.app.TaskStackBuilder;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -21,6 +30,8 @@ public class FormInscriere extends Fragment {
     View view;
     Activity context;
     MyDbAdapter helper;
+
+    String mesajnotif = "Click here to see the list of records";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,7 +76,39 @@ public class FormInscriere extends Fragment {
                         varsta.setText("");
                     }
                 }
+
+                creareNotif();
+
+                Intent resultIntent = new Intent(getContext(), RecordsActivity.class);
+                TaskStackBuilder stackBuilder = TaskStackBuilder.create(getContext());
+                stackBuilder.addNextIntentWithParentStack(resultIntent);
+                PendingIntent resultPendingIntent =
+                        stackBuilder.getPendingIntent(0,
+                                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext(), "My Notification");
+                builder.setContentIntent(resultPendingIntent);
+                builder.setContentTitle("My Title");
+                builder.setContentText(mesajnotif);
+                builder.setSmallIcon(R.drawable.ic_launcher_background);
+                builder.setAutoCancel(true);
+
+
+
+                NotificationManagerCompat managerCompat = NotificationManagerCompat.from(getContext());
+                if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+                managerCompat.notify(1, builder.build());
             }
         });
+    }
+
+    private void creareNotif(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("My Notification", "My Notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = ( NotificationManager ) getActivity().getSystemService( getActivity().NOTIFICATION_SERVICE );
+            manager.createNotificationChannel(channel);
+        }
     }
 }
