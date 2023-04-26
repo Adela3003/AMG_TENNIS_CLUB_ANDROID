@@ -49,25 +49,6 @@ public class MyDbAdapter {
         return cursor;
     }
 
-    public  int delete(String uname)
-    {
-        SQLiteDatabase db = myhelper.getWritableDatabase();
-        String[] whereArgs ={uname};
-
-        int count =db.delete(myDbHelper.TABLE_NAME ,myDbHelper.NAME+" = ?",whereArgs);
-        return  count;
-    }
-
-    public int updateName(String oldName , String newName)
-    {
-        SQLiteDatabase db = myhelper.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(myDbHelper.NAME,newName);
-        String[] whereArgs= {oldName};
-        int count =db.update(myDbHelper.TABLE_NAME,contentValues, myDbHelper.NAME+" = ?",whereArgs );
-        return count;
-    }
-
     static class myDbHelper extends SQLiteOpenHelper
     {
         private static final String DATABASE_NAME = "myDatabase";    // Database Name
