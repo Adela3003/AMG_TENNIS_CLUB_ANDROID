@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AMG_TENNIS_CLUB_ANDROID</string>
+
+    <string name="facebook_app_id">622998526001468</string>
+    <string name="fb_login_protocol_scheme">fb622998526001468</string>
+    <string name="facebook_client_token">8777d47769285eb26915879876ecc582</string>
+
+
 </resources>

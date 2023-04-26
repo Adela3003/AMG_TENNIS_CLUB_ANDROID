@@ -79,11 +79,39 @@
         android:backgroundTint="#317773"
         android:textColor="#E2D1F9" />
 
-    <ImageView
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@id/buttonSave"-->
+<!--        android:src="@drawable/court" />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/others"
+        android:text="or register with"
+        android:textSize="20dp"
+        android:textColor="#317773"
+        android:layout_centerHorizontal="true"
+        android:textColorHint="@color/black"
+        android:layout_above="@id/socialicons" />
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/buttonSave"
-        android:src="@drawable/court" />
+        android:layout_height="wrap_content"
+        android:id="@+id/socialicons"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:id="@+id/fb_btn"
+            android:layout_margin="20dp"
+            android:src="@drawable/facebook_icon" />
+
+    </LinearLayout>
 
 
 </RelativeLayout>

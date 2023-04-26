@@ -8,7 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     Button button_save;
 
     SharedPreferences sharedPreferences;
+
+    ImageView fbBtn;
+
+    CallbackManager callbackManager;
 
     private static final String SHARED_PREF_NAME = "mypref";
     private static final String KEY_NAME = "name";
@@ -29,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         editText_name = findViewById(R.id.editTextName);
         editText_password = findViewById(R.id.editTextPass);
         button_save = findViewById(R.id.buttonSave);
+
+        fbBtn = findViewById(R.id.fb_btn);
+        callbackManager = CallbackManager.Factory.create();
 
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
@@ -54,5 +70,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                        finish();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        // App code
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        // App code
+                    }
+                });
+
+        fbBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LoginManager.getInstance().logInWithReadPermissions(MainActivity.this, Arrays.asList("public_profile"));
+            }
+        });
+
+    }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
