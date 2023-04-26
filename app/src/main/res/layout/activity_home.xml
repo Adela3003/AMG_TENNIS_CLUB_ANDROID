@@ -29,6 +29,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_below="@id/textPassword"
+        android:background="@drawable/court" />
+
+    <Button
+        android:id="@+id/inscriere"
+        android:layout_width="142dp"
+        android:layout_height="68dp"
+        android:layout_above="@id/buttonLogOut"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginBottom="85dp"
+        android:backgroundTint="#317773"
+        android:text="Inscrieti-va in baza noastra de date"
+        android:textColor="#E2D1F9"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/listaAntre"
+        android:layout_width="146dp"
+        android:layout_height="68dp"
+        android:layout_above="@id/buttonLogOut"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="85dp"
+        android:backgroundTint="#317773"
+        android:text="Vizualizati lista antrenorilor"
+        android:textColor="#E2D1F9"
+        android:textSize="12dp" />
+
     <Button
         android:id="@+id/buttonLogOut"
         android:layout_width="wrap_content"

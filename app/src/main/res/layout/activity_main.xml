@@ -79,11 +79,6 @@
         android:backgroundTint="#317773"
         android:textColor="#E2D1F9" />
 
-<!--    <ImageView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_below="@id/buttonSave"-->
-<!--        android:src="@drawable/court" />-->
 
     <TextView
         android:layout_width="wrap_content"

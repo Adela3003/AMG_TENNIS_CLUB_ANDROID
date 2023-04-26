@@ -1,6 +1,9 @@
 package com.example.amg_tennis_club_android;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +20,8 @@ public class HomeActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
 
+    Button btnInscriere, btnListaAntre;
+
     private static final String SHARED_PREF_NAME = "mypref";
     private static final String KEY_NAME = "name";
     private static final String KEY_PASS = "password";
@@ -30,6 +35,9 @@ public class HomeActivity extends AppCompatActivity {
         textView_name = findViewById(R.id.textFullName);
         textView_pass = findViewById(R.id.textPassword);
         button_logout = findViewById(R.id.buttonLogOut);
+
+        btnInscriere = findViewById(R.id.inscriere);
+        btnListaAntre = findViewById(R.id.listaAntre);
 
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
@@ -61,7 +69,26 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
+        btnInscriere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(new FormInscriere());
+            }
+        });
 
+        btnListaAntre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(new ListaAntrenori());
+            }
+        });
 
+    }
+
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout, fragment);
+        fragmentTransaction.commit();
     }
 }
