@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private static final String SHARED_PREF_NAME = "mypref";
     private static final String KEY_NAME = "name";
-    private static final String KEY_PASS = "password";
+    private static final String KEY_EMAIL = "email";
 
 
 
@@ -66,16 +66,16 @@ public class HomeActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
 
         String name = sharedPreferences.getString(KEY_NAME, null);
-        String password = sharedPreferences.getString(KEY_PASS, null);
+        String email = sharedPreferences.getString(KEY_EMAIL, null);
 
-        if(name != null || password != null) {
+        if(name != null || email != null) {
             textView_name.setText("Welcome, " + name + "!");
         }
 
         button_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(name == null && password == null) {
+                if(name == null && email == null) {
                     startActivity(new Intent(HomeActivity.this, MainActivity.class));
                     finish();
                     Toast.makeText(HomeActivity.this, "LOGOUT SUCCESSFULLY", Toast.LENGTH_SHORT).show();
@@ -119,8 +119,6 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()){
                     case R.id.nav_home:
-                        // Log.i("MENU_DRAWER_TAG","Home item is clicked");
-                        // drawerLayout.closeDrawer(GravityCompat.START);
                         Intent intent = new Intent(HomeActivity.this, RecordsActivity.class);
                         startActivity(intent);
                         break;

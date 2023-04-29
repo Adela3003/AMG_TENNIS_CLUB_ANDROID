@@ -57,7 +57,7 @@ public class FormInscriere extends Fragment {
 
                 if(t1.isEmpty() || t2.isEmpty() || t3.isEmpty())
                 {
-                    Message.message(getApplicationContext(),"Enter Both Name and Password");
+                    Message.message(getApplicationContext(),"Enter Both Name and Email");
                 }
                 else
                 {
@@ -88,7 +88,7 @@ public class FormInscriere extends Fragment {
 
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext(), "My Notification");
                 builder.setContentIntent(resultPendingIntent);
-                builder.setContentTitle("My Title");
+                builder.setContentTitle("See our players");
                 builder.setContentText(mesajnotif);
                 builder.setSmallIcon(R.drawable.ic_launcher_background);
                 builder.setAutoCancel(true);

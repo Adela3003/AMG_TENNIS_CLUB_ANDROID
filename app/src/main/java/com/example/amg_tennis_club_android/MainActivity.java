@@ -21,7 +21,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText editText_name, editText_password;
+    EditText editText_name, editText_email;
     Button button_save;
 
     SharedPreferences sharedPreferences;
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String SHARED_PREF_NAME = "mypref";
     private static final String KEY_NAME = "name";
-    private static final String KEY_PASS = "password";
+    private static final String KEY_EMAIL= "email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         editText_name = findViewById(R.id.editTextName);
-        editText_password = findViewById(R.id.editTextPass);
+        editText_email = findViewById(R.id.editTextEmail);
         button_save = findViewById(R.id.buttonSave);
 
         fbBtn = findViewById(R.id.fb_btn);
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences.Editor editor =  sharedPreferences.edit();
                 editor.putString(KEY_NAME, editText_name.getText().toString());
-                editor.putString(KEY_PASS, editText_password.getText().toString());
+                editor.putString(KEY_EMAIL, editText_email.getText().toString());
                 editor.apply();
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(intent);
