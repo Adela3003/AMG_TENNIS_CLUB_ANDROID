@@ -121,6 +121,7 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_home:
                         Intent intent = new Intent(HomeActivity.this, RecordsActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         break;
                 }
 
