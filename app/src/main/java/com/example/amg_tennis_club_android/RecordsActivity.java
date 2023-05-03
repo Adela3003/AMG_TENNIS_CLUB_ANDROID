@@ -53,7 +53,7 @@ public class RecordsActivity extends AppCompatActivity {
         backToHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RecordsActivity.this, HomeActivity.class);
+                Intent intent = new Intent(RecordsActivity.this, MainActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
